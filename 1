@@ -52,34 +52,56 @@ namespace lab2sharp
     
 
     }
-    class Child : Parent
+    public class Parent
     {
-        int a2, b2, c2;
-        public Child(int a,int b,int c) 
+
+        private protected int a;
+        private protected int b;
+        private protected int c;
+
+        public Parent()
         {
-            this.a2 = a;
-            this.b2 = b;
-            this.c2 = c;
+            a = 0;
+            b = 0;
+            c = 0;
         }
-        public double Russian_roulette()
+        public Parent(int a, int b, int c)
         {
-            double p, S;
-            p = (a2 + b2 + c2) / 2;
-            if (a2 >= 0 && b2 >= 0 && c2 >= 0)
-                S = Math.Sqrt(p * (p - a2) * (p - b2) * (p - c2));
-        
-                else
-                {
-                S = 0;
-                }
-              return S;
-       }                   
-        public void GOOOOL()
-        {
-            if (a2==b2||a2==c2||b2==c2 ) Console.WriteLine("ГООООООЛ");
-            else Console.WriteLine("НЕ ГООООООЛ");
+            this.a = a;
+            this.b = b;
+            this.c = c;
+
         }
+
+
+        public Parent(Parent parents)
+        {
+            a = parents.a;
+            b = parents.b;
+            c = parents.c;
+        }
+        public void Max()
+        {
+            int max = Math.Max(a, b);
+            max = Math.Max(c, max);
+            Console.WriteLine(max);
+        }
+
+        public string Tostring(int z, int x, int q)
+        {
+            string s = $"{z}, {x}, {q}";
+            return s;
+        }
+        public override string ToString()
+        {
+            base.ToString();
+            string s = $"{a}, {b}, {c}";
+            return s;
+        }
+
+
     }
+}
     class Program
     {
         static void Main(string[] args)
