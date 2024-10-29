@@ -1,0 +1,168 @@
+using System;
+using System.Runtime.Intrinsics.X86;
+
+namespace lab2sharp
+{
+
+    public class Parent
+    {
+
+        private int a;
+        private int b;
+        private int c;
+
+        public Parent()
+        {
+            a = 1;
+            b = 1;
+            c = 1;
+        }
+        public Parent(int a, int b, int c)
+        {
+            this.a = a;
+            this.b = b;
+            this.c = c;
+
+        }
+
+        public Parent(Parent parents)
+        {
+            a = parents.a;
+            b = parents.b;
+            c = parents.c;
+        }
+        public void Max()
+        {
+            int max = Math.Max(a, b);
+            max = Math.Max(c, max);
+            Console.WriteLine(max);
+        }
+
+        public string Tostring(int z,int x,int q)
+        {
+            string s = $"{z}, {x}, {q}";
+            return s;
+        }
+        public override string ToString( )
+        {
+            base.ToString();
+            string s = $"{a}, {b}, {c}";
+            return s;
+        }
+    
+
+    }
+    class Child : Parent
+    {
+        int a2, b2, c2;
+        public Child(int a,int b,int c) 
+        {
+            this.a2 = a;
+            this.b2 = b;
+            this.c2 = c;
+        }
+        public double Russian_roulette()
+        {
+            double p, S;
+            p = (a2 + b2 + c2) / 2;
+            S = Math.Sqrt(p * (p - a2) * (p - b2) * (p - c2));
+            return S;
+        }                      
+        public void GOOOOL()
+        {
+            if (a2==b2||a2==c2||b2==c2 ) Console.WriteLine("ГООООООЛ");
+            else Console.WriteLine("НЕ ГООООООЛ");
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string s;
+            int a1, b1, c1, a2, b2, c2;
+            Console.WriteLine("Введите а1");
+            s=Console.ReadLine();
+            try
+            {
+                a1 = Convert.ToInt32(s);
+            }
+            catch
+            {
+                Console.WriteLine("a Не является числом");
+                throw;
+            }
+            Console.WriteLine("Введите b1");
+            s =Console.ReadLine();
+            try
+            {
+                b1 = Convert.ToInt32(s);
+            }
+            catch
+            {
+                Console.WriteLine("b Не является числом");
+                throw;
+            }
+            Console.WriteLine("Введите c1");
+            s =Console.ReadLine();
+            try
+            {
+                c1 = Convert.ToInt32(s);
+            }
+            catch
+            {
+                Console.WriteLine("c Не является числом");
+                throw;
+            }
+            Console.WriteLine("Введите a2");
+            s =Console.ReadLine();
+            try
+            {
+                a2 = Convert.ToInt32(s);
+            }
+            catch
+            {
+                Console.WriteLine("a Не является числом");
+                throw;
+            }
+            Console.WriteLine("Введите b2");
+            s = Console.ReadLine();
+            try
+            {
+                b2= Convert.ToInt32(s);
+            }
+            catch
+            {
+                Console.WriteLine("b Не является числом");
+                throw;
+            }
+            Console.WriteLine("Введите c2");
+            s = Console.ReadLine();
+            try
+            {
+                c2 = Convert.ToInt32(s);
+            }
+            catch
+            {
+                Console.WriteLine("c Не является числом");
+                throw;
+            }
+            Console.WriteLine();
+            Parent One = new Parent(a1, b1, c1);
+            Parent Two = new Parent(One);
+            Child Third = new (a2,b2,c2);
+            Console.Write("Максимальное из a1,b1,c1: ");
+            One.Max();
+            s=Two.ToString();
+            Console.Write("a1,b1,c1 в виде строки: ");
+            Console.WriteLine(s);
+            s = Third.ToString();
+            Console.Write("a2,b2,c2 в виде строки: ");
+            Console.WriteLine(s);
+            double q=Third.Russian_roulette();
+            Console.Write("Площадь треугольника со сторонами a2b2c2: ");
+            Console.WriteLine(q);
+            Console.Write("Является ли треугольник равнобедренным: ");
+            Third.GOOOOL();
+        }
+    }
+}
