@@ -65,9 +65,15 @@ namespace lab2sharp
         {
             double p, S;
             p = (a2 + b2 + c2) / 2;
-            S = Math.Sqrt(p * (p - a2) * (p - b2) * (p - c2));
-            return S;
-        }                      
+            if (a2 >= 0 && b2 >= 0 && c2 >= 0)
+                S = Math.Sqrt(p * (p - a2) * (p - b2) * (p - c2));
+        
+                else
+                {
+                S = 0;
+                }
+              return S;
+       }                   
         public void GOOOOL()
         {
             if (a2==b2||a2==c2||b2==c2 ) Console.WriteLine("ГООООООЛ");
