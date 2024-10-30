@@ -103,7 +103,7 @@ namespace lab2sharp
             }
             catch
             {
-                Console.WriteLine("a Не является числом");
+                Console.WriteLine("a Не является  типом int");
                 throw;
             }
             Console.WriteLine("Введите b1");
@@ -114,7 +114,7 @@ namespace lab2sharp
             }
             catch
             {
-                Console.WriteLine("b Не является числом");
+                Console.WriteLine("b Не является типом int");
                 throw;
             }
             Console.WriteLine("Введите c1");
@@ -125,7 +125,7 @@ namespace lab2sharp
             }
             catch
             {
-                Console.WriteLine("c Не является числом");
+                Console.WriteLine("c Не является типом int");
                 throw;
             }
             Console.WriteLine("Введите a2");
@@ -136,7 +136,7 @@ namespace lab2sharp
             }
             catch
             {
-                Console.WriteLine("a Не является числом");
+                Console.WriteLine("a Не является типом int");
                 throw;
             }
             Console.WriteLine("Введите b2");
@@ -147,7 +147,7 @@ namespace lab2sharp
             }
             catch
             {
-                Console.WriteLine("b Не является числом");
+                Console.WriteLine("b Не является типом int");
                 throw;
             }
             Console.WriteLine("Введите c2");
@@ -158,13 +158,13 @@ namespace lab2sharp
             }
             catch
             {
-                Console.WriteLine("c Не является числом");
+                Console.WriteLine("c Не является типом int");
                 throw;
             }
             Console.WriteLine();
             Parent One = new Parent(a1, b1, c1);
             Parent Two = new Parent(One);
-            Child Third = new (a2,b2,c2);
+            Child Third = new Child (a2,b2,c2);
             Console.Write("Максимальное из a1,b1,c1: ");
             One.Max();
             s=Two.ToString();
